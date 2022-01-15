@@ -1,6 +1,5 @@
 // Assignment code here
 
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -33,6 +32,12 @@ function getLength() {
 }
 
 function generatePassword() {
+  var passChars = "";
+  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numbers = "123456789";
+  var specialChars = "~`!@#$%^&*()-_+={}[]|:;<>,.?";
+
   var wantLength = window.confirm (
     "Would you like to add a length to your password?"
   );
@@ -40,6 +45,42 @@ function generatePassword() {
   {
     var length = getLength();
     console.log(length);
+  }
+
+  var useLower = window.confirm (
+    "Would you like your password to contain lowercase letters?"
+  );
+  if(useLower)
+  {
+    passChars += lowerChars;
+    console.log(passChars);
+  }
+
+  var useUpper = window.confirm (
+    "Would you like your password to contain uppercase letters?"
+  );
+  if(useUpper)
+  {
+    passChars += upperChars;
+    console.log(passChars);
+  }
+
+  var useNumbers = window.confirm (
+    "Would you like your password to contain numbers?"
+  );
+  if(useNumbers)
+  {
+    passChars += numbers;
+    console.log(passChars);
+  }
+
+  var useSpecial = window.confirm (
+    "Would you like your password to contain special characters?"
+  );
+  if(useSpecial)
+  {
+    passChars += specialChars;
+    console.log(passChars);
   }
 }
 
