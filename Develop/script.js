@@ -36,7 +36,7 @@ function generatePassword() {
   var lowerChars = "abcdefghijklmnopqrstuvwxyz";
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "123456789";
-  var specialChars = "~`!@#$%^&*()-_+={}[]|:;<>,.?";
+  var specialChars = "~!@#$%^&*()-_+={}[]|:;<>,.?";
 
   var wantLength = window.confirm (
     "Would you like to add a length to your password?"
@@ -45,6 +45,11 @@ function generatePassword() {
   {
     var length = getLength();
     console.log(length);
+  }
+  else
+  {
+    password = " "
+    return password;
   }
 
   var useLower = window.confirm (
@@ -82,6 +87,14 @@ function generatePassword() {
     passChars += specialChars;
     console.log(passChars);
   }
+
+  var password = "";
+  for(var i = 0; i < length; i++)
+  {
+    password += passChars[Math.floor(Math.random() * (passChars.length - 1))];
+  }
+  console.log(password);
+  return(password);
 }
 
 // Write password to the #password input
