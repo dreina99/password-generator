@@ -1,5 +1,3 @@
-// Assignment code here
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -31,27 +29,15 @@ function getLength() {
   return length;
 }
 
-function generatePassword() {
+function addPassChars() {
+  // possible characters 
   var passChars = "";
   var lowerChars = "abcdefghijklmnopqrstuvwxyz";
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "123456789";
   var specialChars = "~!@#$%^&*()-_+={}[]|:;<>,.?";
 
-  var wantLength = window.confirm (
-    "Would you like to add a length to your password?"
-  );
-  if(wantLength)
-  {
-    var length = getLength();
-    console.log(length);
-  }
-  else
-  {
-    password = " "
-    return password;
-  }
-
+  // get character types from user
   var useLower = window.confirm (
     "Would you like your password to contain lowercase letters?"
   );
@@ -88,6 +74,25 @@ function generatePassword() {
     console.log(passChars);
   }
 
+  // error handling
+  if(passChars === "" || passChars === null)
+  {
+    window.alert("Please select at least one character type");
+    return addPassChars();
+  }
+  
+  // return string of possible characters
+  return passChars;
+}
+
+function generatePassword() {
+  // get length of password
+  var length = getLength();
+
+  // create a string with possible characters in password
+  var passChars = addPassChars();
+
+  // create password based on characters in passChars
   var password = "";
   for(var i = 0; i < length; i++)
   {
